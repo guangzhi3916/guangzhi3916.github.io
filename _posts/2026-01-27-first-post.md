@@ -8,5 +8,5 @@ tags: [生活]
 这是我的新的个人网站，就用来记录一些感想，经验，总结吧
 
 试一下上传pdf
-[my pdf](/guangzhi3916.github.io/assets/file/code.pdf)
+[my pdf](/assets/file/code.pdf)
 > 期待下次再见
