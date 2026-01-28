@@ -3,27 +3,20 @@
 /* prettier-ignore */
 @use 'main{%- if jekyll.environment == ' production' -%}.bundle{%- endif -%}';
 
-/* Custom Background Image */
-body {
-    /* Use relative_url to ensure the path works even if baseurl is set */
-    background: url("{{ '/assets/img/background.png' | relative_url }}") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
 /* Glassmorphism Configuration */
 :root {
     --glass-bg-light: rgba(255, 255, 255, 0.85);
     /* Adjust opacity (0.0 - 1.0) as needed */
     --glass-bg-dark: rgba(27, 27, 30, 0.75);
+
+    /* Sidebar colors (match the reference image) */
+    --sidebar-bg-light: #efefef;
+    --sidebar-bg-dark: rgba(27, 27, 30, 0.82);
 }
 
 /* Sidebar Override */
 #sidebar {
-    background-color: var(--glass-bg-light) !important;
+    background-color: var(--sidebar-bg-light) !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
@@ -49,7 +42,7 @@ body {
     background-color: var(--glass-bg-dark) !important;
 }
 
-/* Ensure html doesn't hide the body background */
-html {
-    background: none !important;
+/* Dark Mode Sidebar Override */
+[data-mode="dark"] #sidebar {
+    background-color: var(--sidebar-bg-dark) !important;
 }
