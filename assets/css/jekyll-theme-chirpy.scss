@@ -1,0 +1,65 @@
+--- ---
+
+/* prettier-ignore */
+@use 'main
+ {
+    %- if jekyll.environment=='production' -%
+}
+
+.bundle {
+    %- endif -%
+}
+
+';
+
+/* append your custom style below */
+
+/* Add background image to body */
+body {
+    background: url('/assets/img/background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* Glassmorphism effect for sidebar and main content */
+/* We use a slight transparency to let the background show through */
+
+/* Define transparency variables */
+:root {
+    --glass-bg-light: rgba(255, 255, 255, 0.85);
+    --glass-bg-dark: rgba(27, 27, 30, 0.65);
+}
+
+#sidebar {
+    background-color: var(--glass-bg-light);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+#main-wrapper {
+    background-color: var(--glass-bg-light);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Dark mode overrides */
+[data-mode="dark"] #sidebar {
+    background-color: var(--glass-bg-dark);
+}
+
+[data-mode="dark"] #main-wrapper {
+    background-color: var(--glass-bg-dark);
+}
+
+/* Ensure the topbar (if present) also blends in or stays solid */
+#topbar-wrapper {
+    background-color: var(--glass-bg-light);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+[data-mode="dark"] #topbar-wrapper {
+    background-color: var(--glass-bg-dark);
+}
