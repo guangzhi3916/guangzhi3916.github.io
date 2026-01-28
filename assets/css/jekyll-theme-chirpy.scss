@@ -12,54 +12,54 @@
 
 ';
 
-/* append your custom style below */
 
-/* Add background image to body */
+/* Custom Background Image */
 body {
-    background: url('/assets/img/background.png') no-repeat center center fixed;
+    /* Use relative_url to ensure the path works even if baseurl is set */
+    background: url("{{ '/assets/img/background.png' | relative_url }}") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-attachment: fixed;
 }
 
-/* Glassmorphism effect for sidebar and main content */
-/* We use a slight transparency to let the background show through */
-
-/* Define transparency variables */
+/* Glassmorphism Configuration */
 :root {
     --glass-bg-light: rgba(255, 255, 255, 0.85);
-    --glass-bg-dark: rgba(27, 27, 30, 0.65);
+    /* Adjust opacity (0.0 - 1.0) as needed */
+    --glass-bg-dark: rgba(27, 27, 30, 0.75);
 }
 
+/* Sidebar Override */
 #sidebar {
-    background-color: var(--glass-bg-light);
+    background-color: var(--glass-bg-light) !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
+/* Main Content Wrapper Override */
 #main-wrapper {
-    background-color: var(--glass-bg-light);
+    background-color: var(--glass-bg-light) !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
-/* Dark mode overrides */
-[data-mode="dark"] #sidebar {
-    background-color: var(--glass-bg-dark);
-}
-
-[data-mode="dark"] #main-wrapper {
-    background-color: var(--glass-bg-dark);
-}
-
-/* Ensure the topbar (if present) also blends in or stays solid */
+/* Topbar Override */
 #topbar-wrapper {
-    background-color: var(--glass-bg-light);
+    background-color: var(--glass-bg-light) !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
+/* Dark Mode Specific Overrides */
+[data-mode="dark"] #sidebar,
+[data-mode="dark"] #main-wrapper,
 [data-mode="dark"] #topbar-wrapper {
-    background-color: var(--glass-bg-dark);
+    background-color: var(--glass-bg-dark) !important;
+}
+
+/* Ensure html doesn't hide the body background */
+html {
+    background: none !important;
 }
